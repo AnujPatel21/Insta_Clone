@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>home</title>
+  <style>
+  div.sticky
+  {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: #FFFFFF;
+    border: 1px solid #FDFDFD;
+  }
+  #profilepicture
+  {
+  border-radius: 50%;
+  float: left;
+  margin: 0px 15px 15px 0px;
+}
+#post
+{
+border-radius: 10%;
+float: left;
+}
+h1.a{
+  float: left;
+  margin: 0px 25px 25px 0px;
+}
+#Logout{
+  float: right;
+}
+  </style>
+</head>
+    <body bgcolor = "#FAFAFA"><br>
+    <div class = "sticky">
+      <a href = '{% url "timeline" %}'><h2><i>Instagram</i></h2></a>
+      <a id = "logout" href = '{% url "signout" %}'>Logout</a>
+    </div>
+
+      {% for i in pro %}
+      <img id = "profilepicture" src="{{media_url}}{{ i.profilepic }}" alt="Avatar" style="width:200px" height="150" width= "250">
+      {% endfor %}
+      <h1 class = "a"><i>{{ username }}</i> &nbsp;&nbsp;&nbsp;&nbsp;
+      <i>Following : <a href = '{% url "following" %}'>{{ count_follow }}</a>&nbsp;&nbsp;&nbsp;&nbsp;</i>
+      <i>Followers : <a href = '{% url "follower" %}'>{{ count_follower }}</a> </h1></i>
+      <br><a id = "logout" href = '{% url "upload" %}'><i><h2>Add a Post</a></h2>
+
+      <h2><br><br><br><a href='{% url "pro_picture" %}'>Upload Profile Picture</a></h2><br>
+
+
+      {% for i in img_post %}
+        <img id = "post" src="{{media_url}}{{ i.photo}}" height="350" width= "450">
+        <!-- {{i.caption}}<br> -->
+          <!-- {% for j in namee %}
+            {{ j.main_ownerr }} : {{ j.comment }}<br>
+          {% endfor %} -->
+      {% endfor %}
+
+
+      <br><br><br><br><br><br>
+      <table border = '1'>
+      <tr>
+        <th>Username</th>
+        <th>Follow</th>
+        <th>Unfollow</th>
+      </tr>
+      <tr>
+
+      {% for user in user %}
+      <td>{{ user.username }}</td>
+      <td><a href = '{% url "follow_Unfollow" user.id %}'>Follow</a></td>
+      <td><a href = '{% url "follow_Unfollow" user.id %}'>UnFollow</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    </body>
+</html>

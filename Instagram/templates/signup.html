@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+ <form method = "post" enctype="multipart/form-data">
+   <h1>Sign up</h1>
+     {% csrf_token %}
+     <table style="border: 1px solid black">
+     {{ signup }}
+     </table>
+     <input type="submit" value="Submit">
+ </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+  <h1>Followers</h1>
+
+    Username
+
+    {% for a in all_followings %}
+      {{ a.follower_id.username }}
+    {% endfor %}
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Timeline</title>
+  <style>
+  #post
+  {
+  border-radius: 10%;
+  float: left;
+  }
+  </style>
+</head>
+<body bgcolor = "#FAFAFA">
+  <i><h1>Time Line</h1></i>
+  {% for i in img_post %}
+    <img id = "post" src="{{media_url}}{{ i.photo }}" height="250" width= "350">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>{{i.caption}}<br>
+    <a href = '{% url "like" i.id %}'>Like</a>
+    <a href = '{% url "comment" i.id %}'>Add a Comment</a><br>
+
+    <h2> Likes : {{ i.likes }}</h2>
+      {% for j in namee %}
+        {{ j.main_ownerr }} : {{ j.comment }}<br>
+      {% endfor %}
+      <br>
+  {% endfor %}
+
+</body>
+</html>

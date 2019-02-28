@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+  <form method = "post">
+    <h1>Add a Comment</h1>
+      {% csrf_token %}
+      <table style="border: 1px solid black">
+      {{ form }}
+      </table>
+      <input type="submit" value="Submit">
+  </form>
+  </body>
+  </html>
